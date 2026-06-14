@@ -5,11 +5,9 @@
   "main": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --experimental-strip-types src/index.ts",
-    "dev": "nodemon --exec \"node --experimental-strip-types\" src/index.ts",
-    "seed": "node prisma/seed.js",
-    "prisma:generate": "prisma generate --schema=./prisma/schema.prisma",
-    "postinstall": "prisma generate --schema=./prisma/schema.prisma"
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "seed": "node prisma/seed.js"
   },
   "keywords": [],
   "author": "",
@@ -20,10 +18,10 @@
     "@prisma/client": "^6.19.3",
     "bcrypt": "^6.0.0",
     "express": "^5.2.1",
-    "prisma": "^6.19.3"
+    "prisma": "^6.19.3",
+    "prisma-erd-generator": "^2.4.3"
   },
   "devDependencies": {
-    "@types/express": "^5.0.6",
     "nodemon": "^3.1.14"
   }
 }
