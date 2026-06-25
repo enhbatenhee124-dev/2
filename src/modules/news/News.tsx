@@ -24,18 +24,17 @@ const News: React.FC<NewsProps> = ({
     <section id="news" className="py-24 px-4 sm:px-6 lg:px-12 bg-[#05070F]/50">
       <div className="max-w-8xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Latest News</h2>
-          <p className="text-[#9CA3AF] text-lg">Catch up with our latest achievements and milestones</p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">Сүүлийн Мэдээ</h2>
+          <p className="text-[#9CA3AF] text-lg">Манай сүүлийн амжилтыг хүлээн аваарай</p>
         </div>
 
-        {/* Admin Add Form */}
         {isAdminMode && (
           <div className="mb-12 p-6 bg-[#0A0E17] rounded-2xl border border-blue-500/30">
-            <h3 className="text-xl font-bold text-white mb-4">Add New News Article</h3>
+            <h3 className="text-xl font-bold text-white mb-4">Шинэ Мэдээ Нэмэх</h3>
             <form onSubmit={addNews} className="space-y-4">
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-semibold text-gray-400 mb-2">Image URL</label>
+                  <label className="block text-sm font-semibold text-gray-400 mb-2">Зургийн URL</label>
                   <input 
                     type="text" 
                     value={newNewsItem.image}
@@ -45,7 +44,7 @@ const News: React.FC<NewsProps> = ({
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold text-gray-400 mb-2">Date</label>
+                  <label className="block text-sm font-semibold text-gray-400 mb-2">Огноо</label>
                   <input 
                     type="text" 
                     value={newNewsItem.date}
@@ -55,33 +54,33 @@ const News: React.FC<NewsProps> = ({
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-semibold text-gray-400 mb-2">Title</label>
+                <label className="block text-sm font-semibold text-gray-400 mb-2">Гарчиг</label>
                 <input 
                   type="text" 
                   value={newNewsItem.title}
                   onChange={(e) => setNewNewsItem({...newNewsItem, title: e.target.value})}
-                  placeholder="News title..."
+                  placeholder="Мэдээний гарчиг..."
                   className="w-full px-4 py-2 bg-[#05070F] border border-gray-700 rounded-lg text-white focus:border-blue-500 focus:outline-none"
                   required
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-gray-400 mb-2">Excerpt (short description)</label>
+                <label className="block text-sm font-semibold text-gray-400 mb-2">Товч Тайлбар</label>
                 <textarea 
                   value={newNewsItem.excerpt}
                   onChange={(e) => setNewNewsItem({...newNewsItem, excerpt: e.target.value})}
-                  placeholder="Short excerpt..."
+                  placeholder="Товч тайлбар..."
                   rows={2}
                   className="w-full px-4 py-2 bg-[#05070F] border border-gray-700 rounded-lg text-white focus:border-blue-500 focus:outline-none resize-y"
                   required
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-gray-400 mb-2">Full Article Content</label>
+                <label className="block text-sm font-semibold text-gray-400 mb-2">Бүтэн Мэдээ</label>
                 <textarea 
                   value={newNewsItem.content}
                   onChange={(e) => setNewNewsItem({...newNewsItem, content: e.target.value})}
-                  placeholder="Full article content here..."
+                  placeholder="Бүтэн мэдээ..."
                   rows={6}
                   className="w-full px-4 py-2 bg-[#05070F] border border-gray-700 rounded-lg text-white focus:border-blue-500 focus:outline-none resize-y"
                   required
@@ -91,7 +90,7 @@ const News: React.FC<NewsProps> = ({
                 type="submit"
                 className="w-full md:w-auto px-8 py-3 bg-gradient-to-r from-blue-500 to-[#93C5FD] text-[#05070F] rounded-xl font-bold text-lg hover:shadow-blue-500/50 transition"
               >
-                Add News Article
+                Мэдээ Нэмэх
               </button>
             </form>
           </div>
@@ -124,7 +123,7 @@ const News: React.FC<NewsProps> = ({
                   onClick={() => setSelectedNews(item)}
                   className="text-blue-400 text-sm font-semibold flex items-center gap-2 group-hover:text-blue-300 transition hover:scale-105"
                 >
-                  Read Full Article →
+                  Бүтэн Мэдээг Унших →
                 </button>
               </div>
             </div>

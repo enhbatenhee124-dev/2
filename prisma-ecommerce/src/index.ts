@@ -1,14 +1,21 @@
+import "dotenv/config";
 import express, { type NextFunction, type Request, type Response } from "express";
-import prisma from "./config/db.ts";
-import contactRoutes from "./contact/contact.routes.ts";
-import { ensureUploadDir, uploadDir } from "./middlewares/upload.middleware.ts";
-import { materialRoutes } from "./routes/material.routes.ts";
-import { programRoutes } from "./routes/program.routes.ts";
-import { studentRoutes } from "./routes/student.routes.ts";
-import { teacherRoutes } from "./routes/teacher.routes.ts";
+import cors from "cors";
+import prisma from "./config/db.js";
+import contactRoutes from "./contact/contact.routes.js";
+import { ensureUploadDir, uploadDir } from "./middlewares/upload.middleware.js";
+import { materialRoutes } from "./routes/material.routes.js";
+import { programRoutes } from "./routes/program.routes.js";
+import { studentRoutes } from "./routes/student.routes.js";
+import { teacherRoutes } from "./routes/teacher.routes.js";
 
 const app = express();
 const port = Number(process.env.PORT ?? 3000);
+
+app.use(cors({
+  origin: ["http://localhost:5173", "http://localhost:5174", "http://localhost:5175", "http://localhost:5176", "http://localhost:5177"],
+  credentials: true
+}));
 
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true }));

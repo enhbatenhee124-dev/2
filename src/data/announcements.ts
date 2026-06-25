@@ -3,23 +3,23 @@ import { Announcement } from '../types';
 export const initialAnnouncements: Announcement[] = [
   {
     id: 1,
-    title: "New Lab Infrastructure Upgrade",
-    date: "June 12, 2026",
-    priority: "High",
-    content: "We've upgraded our cyber labs with the latest tools and hardware for an enhanced learning experience."
+    title: "Шинэ Лабораторийн Хүндэсний Сайжруулалт",
+    date: "2026 оны 6 сарын 12",
+    priority: "Өндөр",
+    content: "Суралцах туршлагыг сайжруулахын тулд бид хамгаалалтын лабораториудаа сүүлийн үеийн хэрэгслүүд болон тоног төхөөрөмжөөр сайжруулсан."
   },
   {
     id: 2,
-    title: "Guest Lecture: Cybersecurity in Fintech",
-    date: "June 8, 2026",
-    priority: "Medium",
-    content: "Join us on June 15 for an exclusive guest lecture by industry expert Sarah Chen."
+    title: "Зочин Лекц: Финтех дахь Хамгаалалт",
+    date: "2026 оны 6 сарын 8",
+    priority: "Дунд",
+    content: "6 сарын 15-нд салбарын мэргэжилтэн Сара Ченгийн онцгой зочин лекцэнд оролцоно уу."
   },
   {
     id: 3,
-    title: "Certificate Distribution Ceremony",
-    date: "June 1, 2026",
-    priority: "Low",
-    content: "The ceremony for graduating batch will be held on June 20 at 5 PM in the main auditorium."
+    title: "Сертификат Хуваалах Уран Зургаан Үйлчилгээ",
+    date: "2026 оны 6 сарын 1",
+    priority: "Бага",
+    content: "Төгссөн эзэмшлийн церемоний 6 сарын 20-нд 17:00 цагт үндсэн аудиторид болно."
   }
 ];

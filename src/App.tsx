@@ -1,19 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { lessons } from './data/lessons';
-import { initialAdmissions } from './data/admissions';
-import { initialAnnouncements } from './data/announcements';
 import { initialNews } from './data/news';
-import Admissions from './modules/admissions/Admissions';
-import Announcements from './modules/announcements/Announcements';
+import Timeline from './modules/timeline/Timeline';
 import News from './modules/news/News';
 import Programs from './modules/programs/Programs';
 import { 
   Lesson, 
-  Admission, 
-  Announcement as AnnouncementType, 
   NewsArticle, 
-  NewAdmission, 
-  NewAnnouncement, 
   NewNewsArticle 
 } from './types';
 
@@ -144,92 +137,42 @@ const AnimatedBackground: React.FC = () => {
 function App() {
   // ============== STATE VARIABLES ==============
   const [selectedLesson, setSelectedLesson] = useState<Lesson | null>(null);
-  const [selectedAdmission, setSelectedAdmission] = useState<Admission | null>(null);
   const [selectedNews, setSelectedNews] = useState<NewsArticle | null>(null);
 
-  const [admissionsList, setAdmissionsList] = useState<Admission[]>(initialAdmissions);
-  const [announcementsList, setAnnouncementsList] = useState<AnnouncementType[]>(initialAnnouncements);
   const [newsList, setNewsList] = useState<NewsArticle[]>(initialNews);
 
   const [isAdminMode, setIsAdminMode] = useState(false);
 
-  const [newAdmission, setNewAdmission] = useState<NewAdmission>({
-    title: '',
-    date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
-    description: '',
-    icon: '📰',
-    details: ''
-  });
-  const [newAnnouncement, setNewAnnouncement] = useState<NewAnnouncement>({
-    title: '',
-    date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
-    priority: 'Low',
-    content: ''
-  });
   const [newNewsItem, setNewNewsItem] = useState<NewNewsArticle>({
     title: '',
-    date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+    date: new Date().toLocaleDateString('mn-MN', { year: 'numeric', month: 'long', day: 'numeric' }),
     image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80',
     excerpt: '',
     content: ''
   });
 
-  // ============== HELPER FUNCTIONS ==============
   const generateId = () => Date.now() + Math.random();
-
-  const addAdmission = (e: React.FormEvent) => {
-    e.preventDefault();
-    setAdmissionsList([...admissionsList, { ...newAdmission, id: generateId() }]);
-    setNewAdmission({
-      title: '',
-      date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
-      description: '',
-      icon: '📰',
-      details: ''
-    });
-  };
-
-  const addAnnouncement = (e: React.FormEvent) => {
-    e.preventDefault();
-    setAnnouncementsList([...announcementsList, { ...newAnnouncement, id: generateId() }]);
-    setNewAnnouncement({
-      title: '',
-      date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
-      priority: 'Low',
-      content: ''
-    });
-  };
 
   const addNews = (e: React.FormEvent) => {
     e.preventDefault();
     setNewsList([...newsList, { ...newNewsItem, id: generateId() }]);
     setNewNewsItem({
       title: '',
-      date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+      date: new Date().toLocaleDateString('mn-MN', { year: 'numeric', month: 'long', day: 'numeric' }),
       image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80',
       excerpt: '',
       content: ''
     });
   };
 
-  const removeAdmission = (id: number) => {
-    setAdmissionsList(admissionsList.filter(ad => ad.id !== id));
-  };
-
-  const removeAnnouncement = (id: number) => {
-    setAnnouncementsList(announcementsList.filter(an => an.id !== id));
-  };
-
   const removeNews = (id: number) => {
     setNewsList(newsList.filter(n => n.id !== id));
   };
 
-  // ============== RENDER ==============
   return (
     <div className="min-h-screen text-white font-sans relative">
       <AnimatedBackground />
       
-      {/* NAVBAR */}
       <nav className="sticky top-0 z-50 bg-[#0A0E17]/90 backdrop-blur-md border-b border-gray-800/30">
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-12">
           <div className="flex justify-between items-center h-16">
@@ -239,10 +182,10 @@ function App() {
             </div>
             
             <div className="hidden md:flex items-center gap-8">
-              <a href="#programs" className="text-gray-400 hover:text-blue-300 transition text-sm font-semibold tracking-wide">PROGRAMS</a>
-              <a href="#admissions" className="text-gray-400 hover:text-blue-300 transition text-sm font-semibold tracking-wide">ADMISSIONS</a>
-              <a href="#announcements" className="text-gray-400 hover:text-blue-300 transition text-sm font-semibold tracking-wide">ANNOUNCEMENTS</a>
-              <a href="#news" className="text-gray-400 hover:text-blue-300 transition text-sm font-semibold tracking-wide">NEWS</a>
+              <a href="#about" className="text-gray-400 hover:text-blue-300 transition text-sm font-semibold tracking-wide">БИДНИЙ ТУХАЙ</a>
+              <a href="#programs" className="text-gray-400 hover:text-blue-300 transition text-sm font-semibold tracking-wide">ХОТГӨЛБӨР</a>
+              <a href="#timeline" className="text-gray-400 hover:text-blue-300 transition text-sm font-semibold tracking-wide">TIMELINE</a>
+              <a href="#news" className="text-gray-400 hover:text-blue-300 transition text-sm font-semibold tracking-wide">МЭДЭЭ</a>
             </div>
             
             <div className="flex items-center gap-4">
@@ -254,52 +197,46 @@ function App() {
                       : 'bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 text-white shadow-lg shadow-purple-500/20'
                   }`}
                 >
-                  {isAdminMode ? 'EXIT ADMIN' : 'ADMIN PANEL'}
+                  {isAdminMode ? 'ГАРАХ' : 'АДМИН'}
                 </button>
-                <button className="hidden md:block px-6 py-2 border border-blue-400 text-blue-300 rounded-lg hover:bg-blue-400/10 transition text-sm font-semibold">LOGIN</button>
+                <button className="hidden md:block px-6 py-2 border border-blue-400 text-blue-300 rounded-lg hover:bg-blue-400/10 transition text-sm font-semibold">НЭВТРЭХ</button>
                 <button className="px-6 py-2 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 rounded-lg font-semibold shadow-lg shadow-blue-500/20 transition">
-                  ENROLL NOW
+                  БҮРТГҮҮЛЭХ
                 </button>
               </div>
           </div>
         </div>
       </nav>
 
-      {/* HERO SECTION */}
       <section className="relative pt-16 px-4 sm:px-6 lg:px-12 overflow-hidden">
-        {/* Background glow */}
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl"></div>
-
-        {/* Hero Image with Overlay & Blur */}
         <div className="relative z-0 mx-auto max-w-8xl overflow-hidden rounded-3xl border border-gray-800/60 shadow-2xl shadow-blue-900/20">
           <img 
-            src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1600&q=80" 
-            alt="Cyber Security Background" 
+            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80" 
+            alt="Education Background" 
             className="w-full h-[700px] object-cover blur opacity-100"
           />
-          {/* Overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-[#05070F] via-[#05070F]/70 to-[#05070F]/40"></div>
           
-          {/* Hero Content Overlay */}
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center z-10">
             <div className="max-w-3xl px-4">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full mb-8">
                 <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-                <span className="text-blue-300 text-xs font-mono uppercase tracking-widest">Elite Cyber Defense Training</span>
+                <span className="text-blue-300 text-xs font-mono uppercase tracking-widest">Эрчимтэй Боловсрол</span>
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-8 leading-tight">
-                Master the <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-[#93C5FD]">Digital Frontier</span>
+                Мэргэжилтэй <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-[#93C5FD]">болох</span>
               </h1>
               <p className="text-[#9CA3AF] text-lg md:text-xl mb-12 leading-relaxed">
-                Weaponize your technical expertise. Join the Indra Cyber Institute and transform from an enthusiast into a specialized cyber professional through immersive, mission-critical simulations.
+                Indra Institute-д нэгдэж, Fullstack Development, Digital Marketing, хэлний хөтөлбөрүүдээс сонгоно уу.
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <button className="px-10 py-4 bg-gradient-to-r from-blue-500 to-[#93C5FD] text-[#05070F] rounded-xl font-bold text-lg shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 transition transform hover:-translate-y-0.5">
-                  VIEW PROGRAMS
+                  ХОТГӨЛБӨР ҮЗЭХ
                 </button>
                 <button className="px-10 py-4 border border-gray-700 text-white rounded-xl font-semibold text-lg hover:border-blue-500 hover:text-blue-300 transition bg-[#090D1A]/50 backdrop-blur-sm">
-                  EXPLORE CURRICULUM
+                  Бүртгүүлэх
                 </button>
               </div>
             </div>
@@ -307,13 +244,12 @@ function App() {
         </div>
 
         <div className="pt-24">
-          {/* Statistics Grid */}
           <div className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-10 p-10 bg-[#0A0E17]/70 rounded-2xl border border-gray-800/30 backdrop-blur-sm">
             {[
-              { value: "98%", label: "PLACEMENT" },
-              { value: "2,400+", label: "EXPERTS" },
-              { value: "1.2M", label: "ATTACKS LAB" },
-              { value: "45+", label: "FORTUNE PARTNERS" }
+              { value: "98%", label: "АЖИЛД ОРУУЛАХ" },
+              { value: "2,400+", label: "СУРАГЧ" },
+              { value: "10+", label: "ХӨТГӨЛБӨР" },
+              { value: "45+", label: "БАЙГУУЛЛАГУУД" }
             ].map((stat, i) => (
               <div key={i} className="text-center">
                 <div className="text-3xl md:text-5xl font-bold text-white mb-2">{stat.value}</div>
@@ -324,31 +260,54 @@ function App() {
         </div>
       </section>
 
-      {/* PROGRAMS SECTION */}
+      {/* Бидний Тухай section */}
+      <section id="about" className="py-24 px-4 sm:px-6 lg:px-12 bg-[#0A0E17]">
+        <div className="max-w-8xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Бидний Тухай</h2>
+            <p className="text-[#9CA3AF] text-lg">Монголын анхны нэгдсэн экосистемтой институт</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="bg-[#05070F]/80 border border-gray-800/60 rounded-2xl p-8 backdrop-blur-sm hover:border-blue-500/50 transition-all duration-300 transform hover:-translate-y-2">
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center mb-6">
+                <span className="text-2xl font-bold">AI</span>
+              </div>
+              <h3 className="text-xl font-bold text-white mb-4">AI интеграцтай сургалт</h3>
+              <p className="text-[#9CA3AF] text-[#9CA3AF]">ChatGPT, Claude, Midjourney зэрэг 10+ AI хэрэгслийг хичээлд нэгтгэсэн орчин үеийн сургалтын арга.</p>
+            </div>
+
+            <div className="bg-[#05070F]/80 border border-gray-800/60 rounded-2xl p-8 backdrop-blur-sm hover:border-blue-500/50 transition-all duration-300 transform hover:-translate-y-2">
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center mb-6">
+                <span className="text-2xl font-bold">CT</span>
+              </div>
+              <h3 className="text-xl font-bold text-white mb-4">Олон улсын сертификат</h3>
+              <p className="text-[#9CA3AF] text-[#9CA3AF]">Google, Meta, Harvard зэрэг олон улсад хүлээн зөвшөөрөгдсөн байгууллагуудын сертификат олгодог.</p>
+            </div>
+
+            <div className="bg-[#05070F]/80 border border-gray-800/60 rounded-2xl p-8 backdrop-blur-sm hover:border-blue-500/50 transition-all duration-300 transform hover:-translate-y-2">
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center mb-6">
+                <span className="text-2xl font-bold">JB</span>
+              </div>
+              <h3 className="text-xl font-bold text-white mb-4">Ажлын байранд бэлтгэх</h3>
+              <p className="text-[#9CA3AF] text-[#9CA3AF]">Төгсөгчдийн 50%+ нь төгсмөгцөө ажилд орсон. Бодит портфолиотойгоор төгсөнө.</p>
+            </div>
+
+            <div className="bg-[#05070F]/80 border border-gray-800/60 rounded-2xl p-8 backdrop-blur-sm hover:border-blue-500/50 transition-all duration-300 transform hover:-translate-y-2">
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center mb-6">
+                <span className="text-2xl font-bold">EC</span>
+              </div>
+              <h3 className="text-xl font-bold text-white mb-4">Нэгдсэн экосистем</h3>
+              <p className="text-[#9CA3AF] text-[#9CA3AF]">IT + Маркетинг + Хэлний сургалтыг нэг дор нэгтгэсэн Монголын анхны мэргэжлийн институт.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <Programs lessons={lessons} setSelectedLesson={setSelectedLesson} />
 
-      {/* ADMISSIONS SECTION */}
-      <Admissions 
-        admissions={admissionsList}
-        isAdminMode={isAdminMode}
-        newAdmission={newAdmission}
-        setNewAdmission={setNewAdmission}
-        addAdmission={addAdmission}
-        removeAdmission={removeAdmission}
-        setSelectedAdmission={setSelectedAdmission}
-      />
+      <Timeline />
 
-      {/* ANNOUNCEMENTS SECTION */}
-      <Announcements 
-        announcements={announcementsList}
-        isAdminMode={isAdminMode}
-        newAnnouncement={newAnnouncement}
-        setNewAnnouncement={setNewAnnouncement}
-        addAnnouncement={addAnnouncement}
-        removeAnnouncement={removeAnnouncement}
-      />
-
-      {/* NEWS SECTION */}
       <News 
         news={newsList}
         isAdminMode={isAdminMode}
@@ -359,20 +318,18 @@ function App() {
         setSelectedNews={setSelectedNews}
       />
 
-      {/* CTA BANNER */}
       <section className="py-20 px-4 sm:px-6 lg:px-12 bg-gradient-to-r from-blue-900 to-indigo-1000">
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="text-center md:text-left">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">Ready to join the Vanguard?</h2>
-            <p className="text-blue-200 text-lg">Applications for the Accelerator intake are now open. Limited seats available.</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">Бидэнтэй нэгдэхээр бэлэн үү?</h2>
+            <p className="text-blue-200 text-lg">Хурдан хөтөлбөрийн өрсөлдөхөөс бүртгүүлэх боломж нээлттэй. Хязгаарлагдсан суудал.</p>
           </div>
           <button className="px-10 py-4 bg-[#05070F] text-white rounded-xl font-bold text-lg hover:bg-[#090D1A] transition shadow-lg shadow-black/20 whitespace-nowrap">
-            START YOUR ASSESSMENT
+            ҮНЭЛГЭЭ ЭХЛҮҮЛЭХ
           </button>
         </div>
       </section>
 
-      {/* FOOTER */}
       <footer className="py-12 px-4 sm:px-6 lg:px-12 border-t border-gray-800/50 bg-[#0A0E17]/70 backdrop-blur-sm">
         <div className="max-w-8xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
@@ -382,41 +339,40 @@ function App() {
                 <span className="text-xl font-bold tracking-wide">INDRA CYBER</span>
               </div>
               <p className="text-[#9CA3AF] text-sm leading-relaxed">
-                Indra Cyber Institute is a premier institution dedicated to training the next generation of cybersecurity professionals and industry leaders.
+                Indra Cyber Institute бол ирээдүйн хамгаалалтын мэргэжилтнүүд болон салбарын тэргүүчдийг сургах анхны байгууллага юм.
               </p>
             </div>
             <div>
-              <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">RESOURCES</h4>
+              <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">НӨӨЦЛӨЛ</h4>
               <ul className="space-y-2 text-[#9CA3AF] text-sm">
-                <li><a href="#" className="hover:text-blue-300 transition">Study Materials</a></li>
-                <li><a href="#" className="hover:text-blue-300 transition">Practice Labs</a></li>
-                <li><a href="#" className="hover:text-blue-300 transition">Career Support</a></li>
+                <li><a href="#" className="hover:text-blue-300 transition">Сургалтын Материал</a></li>
+                <li><a href="#" className="hover:text-blue-300 transition">Дасгалын Лаб</a></li>
+                <li><a href="#" className="hover:text-blue-300 transition">Ажилд Оруулах Тусламж</a></li>
               </ul>
             </div>
             <div>
-              <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">CONTACT</h4>
+              <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">ХОЛБОО БАРИХ</h4>
               <ul className="space-y-2 text-[#9CA3AF] text-sm">
                 <li>contact@indracyber.in</li>
-                <li>+91 98765 43210</li>
-                <li>Delhi, India</li>
+                <li>+976 99999999</li>
+                <li>Улаанбаатар, Монгол</li>
               </ul>
             </div>
             <div>
-              <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">LEGAL</h4>
+              <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">ХУУЛЬ</h4>
               <ul className="space-y-2 text-[#9CA3AF] text-sm">
-                <li><a href="#" className="hover:text-blue-300 transition">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-blue-300 transition">Terms of Service</a></li>
+                <li><a href="#" className="hover:text-blue-300 transition">Нууцлалын бодлого</a></li>
+                <li><a href="#" className="hover:text-blue-300 transition">Үйлчилгээний нөхцөл</a></li>
               </ul>
             </div>
           </div>
           <div className="pt-8 border-t border-gray-800/50 text-center text-[#6B7280] text-sm">
-            © {new Date().getFullYear()} Indra Cyber Institute. Securing the digital frontier since 2018.
+            © {new Date().getFullYear()} Indra Cyber Institute. 2018 оноос хойш дижитал цагаан овоог хамгаалж байна.
           </div>
         </div>
       </footer>
 
-      {/* MODALS */}
-      {/* LESSON DETAILS MODAL */}
+
       {selectedLesson && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
           <div className="bg-[#0A0E17] rounded-3xl border border-gray-800/60 max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl shadow-blue-900/30">
@@ -428,7 +384,7 @@ function App() {
                     selectedLesson.tag === "Foundational" ? "bg-blue-500/20 text-blue-400 border border-blue-500/30" :
                     "bg-purple-500/20 text-purple-400 border border-purple-500/30"
                   }`}>
-                    {selectedLesson.tag}
+                    {selectedLesson.tag === "Advanced" ? "Дэвшилтэт" : selectedLesson.tag === "Foundational" ? "Суурь" : "Тусгай"}
                   </span>
                   <h2 className="text-3xl font-bold text-white">{selectedLesson.title}</h2>
                   <p className="text-blue-400 text-sm font-mono mt-2">{selectedLesson.duration}</p>
@@ -445,13 +401,13 @@ function App() {
               </div>
               <div className="mt-8 pt-6 border-t border-gray-800/50 flex gap-4">
                 <button className="px-8 py-3 bg-gradient-to-r from-blue-500 to-[#93C5FD] text-[#05070F] rounded-xl font-bold text-lg shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 transition transform hover:-translate-y-0.5">
-                  ENROLL NOW
+                  БҮРТГҮҮЛЭХ
                 </button>
                 <button 
                   onClick={() => setSelectedLesson(null)}
                   className="px-8 py-3 border border-gray-700 text-white rounded-xl font-semibold text-lg hover:border-blue-500 hover:text-blue-300 transition"
                 >
-                  CLOSE
+                  ХААХ
                 </button>
               </div>
             </div>
@@ -459,51 +415,9 @@ function App() {
         </div>
       )}
 
-      {/* ADMISSION DETAILS MODAL */}
-      {selectedAdmission && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
-          <div className="bg-[#0A0E17] rounded-3xl border border-gray-800/60 max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl shadow-blue-900/30">
-            <div className="p-8">
-              <div className="flex justify-between items-start mb-6">
-                <div>
-                  <div className="text-5xl mb-4">{selectedAdmission.icon}</div>
-                  <span className="inline-block px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-blue-400 border border-blue-500/30 bg-blue-500/10 mb-4">
-                    ADMISSION UPDATE
-                  </span>
-                  <h2 className="text-3xl font-bold text-white">{selectedAdmission.title}</h2>
-                  <p className="text-blue-400 text-sm font-mono mt-2">{selectedAdmission.date}</p>
-                </div>
-                <button 
-                  onClick={() => setSelectedAdmission(null)}
-                  className="text-gray-400 hover:text-white transition text-2xl p-2 hover:bg-gray-800/50 rounded-full"
-                >
-                  ×
-                </button>
-              </div>
-              <div className="text-[#9CA3AF] whitespace-pre-line leading-relaxed">
-                {selectedAdmission.details}
-              </div>
-              <div className="mt-8 pt-6 border-t border-gray-800/50 flex gap-4">
-                <button className="px-8 py-3 bg-gradient-to-r from-blue-500 to-[#93C5FD] text-[#05070F] rounded-xl font-bold text-lg shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 transition transform hover:-translate-y-0.5">
-                  APPLY NOW
-                </button>
-                <button 
-                  onClick={() => setSelectedAdmission(null)}
-                  className="px-8 py-3 border border-gray-700 text-white rounded-xl font-semibold text-lg hover:border-blue-500 hover:text-blue-300 transition"
-                >
-                  CLOSE
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* NEWS ARTICLE MODAL */}
       {selectedNews && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
           <div className="bg-[#0A0E17] rounded-3xl border border-gray-800/60 max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl shadow-blue-900/30">
-            {/* News Image Header */}
             <div className="relative h-64 w-full overflow-hidden rounded-t-3xl">
               <img 
                 src={selectedNews.image} 
@@ -522,7 +436,7 @@ function App() {
             <div className="p-8">
               <div className="mb-6">
                 <span className="inline-block px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-blue-400 border border-blue-500/30 bg-blue-500/10 mb-4">
-                  NEWS & UPDATES
+                  МЭДЭЭ БОЛОН ШИНЭ ЧИГЛЭЛ
                 </span>
                 <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">{selectedNews.title}</h2>
                 <p className="text-blue-400 text-sm font-mono">{selectedNews.date}</p>
@@ -537,7 +451,7 @@ function App() {
                   onClick={() => setSelectedNews(null)}
                   className="px-8 py-3 border border-gray-700 text-white rounded-xl font-semibold text-lg hover:border-blue-500 hover:text-blue-300 transition"
                 >
-                  CLOSE
+                  ХААХ
                 </button>
               </div>
             </div>

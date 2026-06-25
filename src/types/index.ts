@@ -19,7 +19,7 @@ export interface Announcement {
   id: number;
   title: string;
   date: string;
-  priority: 'High' | 'Medium' | 'Low';
+  priority: 'High' | 'Medium' | 'Low' | 'Өндөр' | 'Дунд' | 'Бага';
   content: string;
 }
 
@@ -44,7 +44,7 @@ export type NewAdmission = {
 export type NewAnnouncement = {
   title: string;
   date: string;
-  priority: 'High' | 'Medium' | 'Low';
+  priority: 'High' | 'Medium' | 'Low' | 'Өндөр' | 'Дунд' | 'Бага';
   content: string;
 };
 

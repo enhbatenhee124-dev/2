@@ -8,20 +8,20 @@ interface ProgramsProps {
 
 const Programs: React.FC<ProgramsProps> = ({ lessons, setSelectedLesson }) => {
   const images = [
-    "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80"
+    "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80", // Fullstack Developer
+    "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80", // Digital Marketing
+    "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80", // English Language
+    "https://images.unsplash.com/photo-1528164344705-47542687000d?auto=format&fit=crop&w=800&q=80", // Chinese Language
+    "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80", // Skillcraft / Game Dev
+    "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=800&q=80" // LITE Program / Startup
   ];
 
   return (
     <section id="programs" className="py-24 px-4 sm:px-6 lg:px-12">
       <div className="max-w-8xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Elite Programs</h2>
-          <p className="text-[#9CA3AF] text-lg">Military-grade syllabus crafted for the cyber warriors of tomorrow</p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">Эрчимтэй Хөтөлбөрүүд</h2>
+          <p className="text-[#9CA3AF] text-lg">Ирээдүйн цахим дайчид зориулсан цэргийн түвшний хичээлийн төлөвлөгөө</p>
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -40,7 +40,7 @@ const Programs: React.FC<ProgramsProps> = ({ lessons, setSelectedLesson }) => {
                     lesson.tag === "Foundational" ? "bg-blue-500/20 text-blue-400 border border-blue-500/30" :
                     "bg-purple-500/20 text-purple-400 border border-purple-500/30"
                   }`}>
-                    {lesson.tag}
+                    {lesson.tag === "Advanced" ? "Дэвшилтэт" : lesson.tag === "Foundational" ? "Суурь" : "Тусгай"}
                   </span>
                 </div>
               </div>
@@ -53,7 +53,7 @@ const Programs: React.FC<ProgramsProps> = ({ lessons, setSelectedLesson }) => {
                     onClick={() => setSelectedLesson(lesson)}
                     className="text-white text-sm font-semibold flex items-center gap-2 group-hover:text-blue-300 transition hover:scale-105"
                   >
-                    View Details 
+                    Дэлгэрэнгүй Үзэх 
                     <svg className="w-4 h-4 group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>

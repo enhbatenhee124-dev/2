@@ -24,18 +24,17 @@ const Admissions: React.FC<AdmissionsProps> = ({
     <section id="admissions" className="py-24 px-4 sm:px-6 lg:px-12 bg-[#05070F]/50">
       <div className="max-w-8xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Admissions</h2>
-          <p className="text-[#9CA3AF] text-lg">Stay updated with our latest admission news and updates</p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">Эзэмшил</h2>
+          <p className="text-[#9CA3AF] text-lg">Манай сүүлийн эзэмшлийн мэдээг хүлээн аваарай</p>
         </div>
 
-        {/* Admin Add Form */}
         {isAdminMode && (
           <div className="mb-12 p-6 bg-[#0A0E17] rounded-2xl border border-blue-500/30">
-            <h3 className="text-xl font-bold text-white mb-4">Add New Admission</h3>
+            <h3 className="text-xl font-bold text-white mb-4">Шинэ Эзэмшил Нэмэх</h3>
             <form onSubmit={addAdmission} className="space-y-4">
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-semibold text-gray-400 mb-2">Icon</label>
+                  <label className="block text-sm font-semibold text-gray-400 mb-2">Икон</label>
                   <input 
                     type="text" 
                     value={newAdmission.icon}
@@ -45,7 +44,7 @@ const Admissions: React.FC<AdmissionsProps> = ({
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold text-gray-400 mb-2">Date</label>
+                  <label className="block text-sm font-semibold text-gray-400 mb-2">Огноо</label>
                   <input 
                     type="text" 
                     value={newAdmission.date}
@@ -55,33 +54,33 @@ const Admissions: React.FC<AdmissionsProps> = ({
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-semibold text-gray-400 mb-2">Title</label>
+                <label className="block text-sm font-semibold text-gray-400 mb-2">Гарчиг</label>
                 <input 
                   type="text" 
                   value={newAdmission.title}
                   onChange={(e) => setNewAdmission({...newAdmission, title: e.target.value})}
-                  placeholder="Admission title..."
+                  placeholder="Эзэмшлийн гарчиг..."
                   className="w-full px-4 py-2 bg-[#05070F] border border-gray-700 rounded-lg text-white focus:border-blue-500 focus:outline-none"
                   required
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-gray-400 mb-2">Short Description</label>
+                <label className="block text-sm font-semibold text-gray-400 mb-2">Богино Тайлбар</label>
                 <input 
                   type="text" 
                   value={newAdmission.description}
                   onChange={(e) => setNewAdmission({...newAdmission, description: e.target.value})}
-                  placeholder="Brief description..."
+                  placeholder="Богино тайлбар..."
                   className="w-full px-4 py-2 bg-[#05070F] border border-gray-700 rounded-lg text-white focus:border-blue-500 focus:outline-none"
                   required
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-gray-400 mb-2">Full Details</label>
+                <label className="block text-sm font-semibold text-gray-400 mb-2">Дэлгэрэнгүй Мэдээлэл</label>
                 <textarea 
                   value={newAdmission.details}
                   onChange={(e) => setNewAdmission({...newAdmission, details: e.target.value})}
-                  placeholder="Full details here..."
+                  placeholder="Дэлгэрэнгүй мэдээлэл..."
                   rows={4}
                   className="w-full px-4 py-2 bg-[#05070F] border border-gray-700 rounded-lg text-white focus:border-blue-500 focus:outline-none resize-y"
                   required
@@ -91,7 +90,7 @@ const Admissions: React.FC<AdmissionsProps> = ({
                 type="submit"
                 className="w-full md:w-auto px-8 py-3 bg-gradient-to-r from-blue-500 to-[#93C5FD] text-[#05070F] rounded-xl font-bold text-lg hover:shadow-blue-500/50 transition"
               >
-                Add Admission
+                Эзэмшил Нэмэх
               </button>
             </form>
           </div>
@@ -116,7 +115,7 @@ const Admissions: React.FC<AdmissionsProps> = ({
                 onClick={() => setSelectedAdmission(item)}
                 className="mt-6 text-blue-400 text-sm font-semibold flex items-center gap-2 hover:text-blue-300 transition hover:scale-105"
               >
-                Learn More →
+                Дэлгэрэнгүй →
               </button>
             </div>
           ))}

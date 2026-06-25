@@ -22,30 +22,32 @@ const Announcements: React.FC<AnnouncementsProps> = ({
     <section id="announcements" className="py-24 px-4 sm:px-6 lg:px-12">
       <div className="max-w-8xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Announcements</h2>
-          <p className="text-[#9CA3AF] text-lg">Important updates and notifications</p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">Мэдээлэл</h2>
+          <p className="text-[#9CA3AF] text-lg">Чухал мэдээ болон мэдэгдэл</p>
         </div>
 
-        {/* Admin Add Form */}
         {isAdminMode && (
           <div className="mb-12 p-6 bg-[#0A0E17] rounded-2xl border border-blue-500/30">
-            <h3 className="text-xl font-bold text-white mb-4">Add New Announcement</h3>
+            <h3 className="text-xl font-bold text-white mb-4">Шинэ Мэдээлэл Нэмэх</h3>
             <form onSubmit={addAnnouncement} className="space-y-4">
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-semibold text-gray-400 mb-2">Priority</label>
+                  <label className="block text-sm font-semibold text-gray-400 mb-2">Чухал Төвшөө</label>
                   <select 
                     value={newAnnouncement.priority}
-                    onChange={(e) => setNewAnnouncement({...newAnnouncement, priority: e.target.value as 'High' | 'Medium' | 'Low'})}
+                    onChange={(e) => setNewAnnouncement({...newAnnouncement, priority: e.target.value as any})}
                     className="w-full px-4 py-2 bg-[#05070F] border border-gray-700 rounded-lg text-white focus:border-blue-500 focus:outline-none"
                   >
                     <option value="High">High</option>
                     <option value="Medium">Medium</option>
                     <option value="Low">Low</option>
+                    <option value="Өндөр">Өндөр</option>
+                    <option value="Дунд">Дунд</option>
+                    <option value="Бага">Бага</option>
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold text-gray-400 mb-2">Date</label>
+                  <label className="block text-sm font-semibold text-gray-400 mb-2">Огноо</label>
                   <input 
                     type="text" 
                     value={newAnnouncement.date}
@@ -55,22 +57,22 @@ const Announcements: React.FC<AnnouncementsProps> = ({
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-semibold text-gray-400 mb-2">Title</label>
+                <label className="block text-sm font-semibold text-gray-400 mb-2">Гарчиг</label>
                 <input 
                   type="text" 
                   value={newAnnouncement.title}
                   onChange={(e) => setNewAnnouncement({...newAnnouncement, title: e.target.value})}
-                  placeholder="Announcement title..."
+                  placeholder="Мэдээллийн гарчиг..."
                   className="w-full px-4 py-2 bg-[#05070F] border border-gray-700 rounded-lg text-white focus:border-blue-500 focus:outline-none"
                   required
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-gray-400 mb-2">Content</label>
+                <label className="block text-sm font-semibold text-gray-400 mb-2">Агуулга</label>
                 <textarea 
                   value={newAnnouncement.content}
                   onChange={(e) => setNewAnnouncement({...newAnnouncement, content: e.target.value})}
-                  placeholder="Announcement content here..."
+                  placeholder="Мэдээллийн агуулга..."
                   rows={3}
                   className="w-full px-4 py-2 bg-[#05070F] border border-gray-700 rounded-lg text-white focus:border-blue-500 focus:outline-none resize-y"
                   required
@@ -80,7 +82,7 @@ const Announcements: React.FC<AnnouncementsProps> = ({
                 type="submit"
                 className="w-full md:w-auto px-8 py-3 bg-gradient-to-r from-blue-500 to-[#93C5FD] text-[#05070F] rounded-xl font-bold text-lg hover:shadow-blue-500/50 transition"
               >
-                Add Announcement
+                Мэдээлэл Нэмэх
               </button>
             </form>
           </div>
@@ -101,8 +103,8 @@ const Announcements: React.FC<AnnouncementsProps> = ({
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-3">
                     <span className={`px-4 py-1 rounded-full text-xs font-bold uppercase ${
-                      item.priority === "High" ? "bg-red-500/20 text-red-400" :
-                      item.priority === "Medium" ? "bg-yellow-500/20 text-yellow-400" :
+                      item.priority === "High" || item.priority === "Өндөр" ? "bg-red-500/20 text-red-400" :
+                      item.priority === "Medium" || item.priority === "Дунд" ? "bg-yellow-500/20 text-yellow-400" :
                       "bg-green-500/20 text-green-400"
                     }`}>
                       {item.priority}

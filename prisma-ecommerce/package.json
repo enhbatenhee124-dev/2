@@ -1,13 +1,17 @@
 {
-  "name": "prisma-ecommerce",
+  "name": "indra-cyber-backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "Indra Cyber Institute Backend API",
   "main": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/index.js",
-    "dev": "nodemon src/index.js",
-    "seed": "node prisma/seed.js"
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "nodemon --exec tsx src/index.ts",
+    "seed": "tsx prisma/seed.ts",
+    "db:push": "prisma db push",
+    "db:migrate": "prisma migrate dev",
+    "db:generate": "prisma generate"
   },
   "keywords": [],
   "author": "",
@@ -19,9 +23,16 @@
     "bcrypt": "^6.0.0",
     "express": "^5.2.1",
     "prisma": "^6.19.3",
-    "prisma-erd-generator": "^2.4.3"
+    "prisma-erd-generator": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7"
   },
   "devDependencies": {
-    "nodemon": "^3.1.14"
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.2",
+    "nodemon": "^3.1.14",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
   }
 }

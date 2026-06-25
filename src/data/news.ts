@@ -3,91 +3,91 @@ import { NewsArticle } from '../types';
 export const initialNews: NewsArticle[] = [
   {
     id: 1,
-    title: "Indra Cyber Ranked Top 3 in Asia",
-    date: "June 9, 2026",
+    title: "Индра Хамгаалалт Азид Топ 3-д Оруулсан",
+    date: "2026 оны 6 сарын 9",
     image: "https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&w=800&q=80",
-    excerpt: "We're proud to announce that Indra Cyber Institute has been ranked among the top 3 cybersecurity training institutes in Asia.",
-    content: `Indra Cyber Institute Ranked Top 3 in Asia!
+    excerpt: "Индра Хамгаалалтын Сургууль Азийн хамгаалалтын сургалтын сургуулиудын топ 3-д оруулсан гэдгийг бахархж зарлаж байна.",
+    content: `Индра Хамгаалалт Азид Топ 3-д Оруулсан!
 
-We are thrilled and honored to announce that Indra Cyber has been ranked #3 among cybersecurity training institutes in all of Asia by the prestigious Asian Education Awards 2026.
+    Бид гайхшралтай, бахархж Азийн бүх хамгаалалтын сургалтын сургуулиудын дунд 3-р байрлалд байгаа гэж Азийн Боловсролын Шагнал 2026-оор зарлаж байна.
 
-This recognition is a testament to our commitment to excellence in cybersecurity education, our world-class faculty, and our innovative training methodologies.
+    Энэ танилцуулга хамгаалалтын боловсролд шилдэг байхдаа анхаарах, дэлхийн шилдэг багш нар, шинэ арга бүдийг сургалтад ашиглахаас үүдэн гарч байна.
 
-Key Highlights:
-- #1 in India
-- #3 in Asia
-- Award for Outstanding Curriculum Design
-- Special recognition for Placement Record
+    Үндсэн онцлогууд:
+    - 1-р байрлал (Эрдэнэт)
+    - Азид 3-р байрлал
+    - Гайхалтай хөтөлбөрийн дизайныг хүлээсэн
+    - Ажилд орох байдлын тухай онцгой танилцуулга
 
-What This Means For You:
-- Enhanced brand value for all our students and alumni
-- Stronger industry partnerships
-- Expanded placement opportunities
-- Continued investment in our labs and infrastructure
+    Энэ танд юу гэсэн үг вэ:
+    - Бүх оюутан, сурагчдын брэнд үнэ цэнийг нэмэгдүүлэх
+    - Илүү хүчтэй салбарын хамтын ажиллагаа
+    - Ажилд орох боломжуудыг өргөтгөх
+    - Лаборатори, хүндэстэнд байнга хөрөнгө оруулах
 
-We want to thank our entire community - students, faculty, staff, and partners for making this possible. Together, we are shaping the future of cybersecurity.
+    Бид бүх нийгмийн гишүүд - оюутан, багш, ажилтан, хамтын ажиллагчадаа энэ боломжийг бэлдсэн тулд баярлалаа. Хамтдаа бид хамгаалалтын ирээдүйг бий болгож байна.
 
-Here's to reaching greater heights!`
+    Илүү өндөр өндөрд хүрэхийн тулд!`
   },
   {
     id: 2,
-    title: "New AI-Powered Learning Platform",
-    date: "May 25, 2026",
+    title: "Шинэ ИИ-тай Холбогдсон Сургалтын Платформ",
+    date: "2026 оны 5 сарын 25",
     image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80",
-    excerpt: "Introducing our new AI-powered learning platform for personalized course recommendations and practice.",
-    content: `Introducing Our New AI-Powered Learning Platform!
+    excerpt: "Хувиарлагдсан хөтөлбөрийн зөвлөгөө, дасгалыг хийхийн тулд шинэ ИИ-тай суралцах платформыг танилцуулах.",
+    content: `Шинэ ИИ-тай Сургалтын Платформыг Танилцуулж байна!
 
-We are excited to launch our brand new AI-powered learning platform designed to revolutionize your learning experience.
+    Бид та бүхний сургалтын туршлагыг өөрчлөхөд зориулагдсан шинэ ИИ-тай суралцах платформыг эхлүүлэхэд бэлхүү байна.
 
-Features:
-- Personalized learning paths based on your skills and goals
-- AI-generated practice questions and scenarios
-- Real-time progress tracking and analytics
-- Smart recommendations for improvement
-- Virtual lab environments with AI-guided hints
-- Interactive coding challenges with instant feedback
+    Онцлогууд:
+    - Таны чадвар, зорилгод суурилсан хувиарлагдсан сургалтын зам
+    - ИИ-тай үүсгэсэн дасгалын асуулт, үзүүлэлтүүд
+    - Жиэхэсэн явцыг хянах, статистик мэдээлэл
+    - Сайжруулахын тулд ухаалаг зөвлөгөө
+    - ИИ-тай удирдлагатай виртуал лаборатори орчны
+    - Түр хугацаатай хариултад өгөгдсөн интерактив кодлах сорилтууд
 
-How It Works:
-1. Assessment: Take an initial skill assessment
-2. Personalization: AI creates your custom learning plan
-3. Practice: Work through interactive exercises
-4. Feedback: Get instant feedback and recommendations
-5. Progress: Track your improvement over time
+    Хэрхэн ажилладаг вэ:
+    1. Үнэлгээ: Эхлэхэд чадварын шинжилгээ хийх
+    2. Хувиарлагдсан: ИИ таныг хувьсах сургалтын төлөвлөгөөг үүсгэх
+    3. Дасгал: Интерактив дасгалуудыг хийх
+    4. Хариу: Түр хугацаатай хариу, зөвлөгөө авах
+    5. Явц: Хугацааны явцад сайжилтаа хянах
 
-All enrolled students will get free access to this platform starting June 15, 2026!
+    Бүртгүүлсэн бүх оюутан энэ платформыг 2026 оны 6 сарын 15-ээс үнэгүй ашиглах боломжтой!
 
-This is just the beginning of our AI-driven learning revolution!`
+    Энэ бол манай ИИ-тай суралцах хувьсгалын эхлэл л!`
   },
   {
     id: 3,
-    title: "Students Win National Cybersecurity Competition",
-    date: "May 15, 2026",
+    title: "Оюутнууд Үндэсний Хамгаалалтын Тэмцээнд Явсан",
+    date: "2026 оны 5 сарын 15",
     image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80",
-    excerpt: "Our student team secured 1st place in the National Cybersecurity Hackathon 2026!",
-    content: `Our Students Win National Cybersecurity Hackathon!
+    excerpt: "Манай оюутангийн баг Үндэсний Хамгаалалтын Хакатон 2026-нд 1-р байрлалыг авсан!",
+    content: `Манай Оюутнууд Үндэсний Хамгаалалтын Хакатонд Явсан!
 
-We are incredibly proud to announce that our student team "CyberGuardians" has won 1st place in the National Cybersecurity Hackathon 2026!
+    Манай оюутангийн баг "CyberGuardians" Үндэсний Хамгаалалтын Хакатон 2026-нд 1-р байрлалыг авсан гэдгийг бид маш их бахархж зарлаж байна!
 
-The Competition:
-- 50+ teams from top universities across the country
-- 24-hour hacking challenge
-- Categories: Web Security, Network Defense, Forensics, Malware Analysis
-- Judging by industry experts from leading tech companies
+    Тэмцээн:
+    - Улсын дээд их сургуулиудын 50-аас илүү баг
+    - 24 цагийн хакерлах сорил
+    - Ангилалууд: Вэб Хамгаалалт, Сүлжээний Хамгаалалт, Шинжлэх Ухаан, Малварь Шинжилгээ
+    - Топ технологийн компаниудын салбарын мэргэжилтэнүүд шүүх
 
-Our Team's Achievement:
-- Perfect score in Web Security
-- 2nd place in Network Defense
-- Best Forensics Report award
-- Overall champions with highest total score
+    Манай Багийн Амжилт:
+    - Вэб Хамгаалалт дээд оноо
+    - Сүлжээний Хамгаалалт 2-р байрлал
+    - Шинжлэх Ухааны Шилдэг Тайлан
+    - Нийт дээд оноотой тэмцээн дээд
 
-Team Members:
-- Arjun Patel (Team Lead)
-- Priya Sharma
-- Rohan Singh
-- Neha Verma
+    Багийн Гишүүд:
+    - Арҗун Пател (Багын Дарга)
+    - Прия Шарма
+    - Рохан Сингх
+    - Нэха Верма
 
-All team members have already received multiple job offers from our partner companies!
+    Бүх багын гишүүд аль хэдийн манай хамтын ажиллагч компаниудаас олон ажлын санал аваад байна!
 
-This is a proud moment for Indra Cyber and proof of the quality of our training!`
+    Энэ бол Индра Хамгаалалтын бахархалтай мөч, мэргэжлийн чанарыг баталгаажуулж байна!`
   }
 ];

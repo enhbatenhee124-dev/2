@@ -3,93 +3,93 @@ import { Admission } from '../types';
 export const initialAdmissions: Admission[] = [
   {
     id: 1,
-    title: "Winter Batch 2026 Admissions Open",
-    date: "June 10, 2026",
-    description: "Admissions are now open for our Winter 2026 batch. Early bird discounts available until June 30!",
+    title: "Өвлийн Эзэмшил 2026 Нэвтэрэлт Нээгдсэн",
+    date: "2026 оны 6 сарын 10",
+    description: "Өвлийн 2026 оны эзэмшлийн нэвтэрэлт одоо нээгдсэн. 6 сарын 30-ны өмнө бүртгүүлбэл үртэлийн хямдралтай!",
     icon: "🎓",
-    details: `Winter Batch 2026 Admissions are officially open!
+    details: `Өвлийн Эзэмшил 2026 Нэвтэрэлт албан ёсныгаар нээгдсэн!
 
-Key Details:
-- Application Deadline: July 31, 2026
-- Batch Start Date: August 15, 2026
-- Early Bird Discount: 15% off if you enroll before June 30
-- Programs Available: All 6 elite programs
-- Seats Limited: 30 seats per program
+    Үндсэн мэдээлэл:
+    - Хүсэлт гаргах хязгаар: 2026 оны 7 сарын 31
+    - Эзэмшлийн эхлэх өдөр: 2026 оны 8 сарын 15
+    - Үртэлийн хямдрал: 6 сарын 30-ны өмнө бүртгүүлбэл 15% хямдрал
+    - Боломжтой хөтөлбөрүүд: 6 дэвшилтэт хөтөлбөр бүгд
+    - Суудал хязгаарлагдсан: Хөтөлбөр бүрт 30 суудал
 
-Eligibility:
-- Minimum 18 years of age
-- Basic computer knowledge
-- Passion for cybersecurity
+    Үндсэн нөхцөл:
+    - ДОО 18 нас хүрсэн
+    - Үндсэн компьютер мэдлэг
+    - Хамгаалалтад сонирхолтой
 
-Application Process:
-1. Fill online application form
-2. Take entrance assessment
-3. Personal interview (shortlisted candidates)
-4. Offer letter and enrollment
+    Хүсэлт гаргах үйл явц:
+    1. Онлайн хүсэлтийн маягтыг бөглөх
+    2. Орох шалгалт өгөх
+    3. Хувийн ярилцаа (сонгогдсон кандидатууд)
+    4. Саналын захиа бөгөөд бүртгүүлэх
 
-Don't miss this opportunity to kickstart your cybersecurity career!`
+    Хамгааллын мэргэжлийнээ эхлүүлэх энэ боломжийг алдаан угаарай!`
   },
   {
     id: 2,
-    title: "Scholarship Program for Meritorious Students",
-    date: "June 5, 2026",
-    description: "We're offering full scholarships to 10 deserving students based on entrance exam results.",
+    title: "Сайн суралцагч оюутнуудад Благословлын хөтөлбөр",
+    date: "2026 оны 6 сарын 5",
+    description: "Орох шалгалтын үр дүнд үндэслэн 10 гайхалтай оюутанд бүрэн хөтөлбөрийн сургалтын хөтөлбөрийг санал болгож байна.",
     icon: "💰",
-    details: `Merit Scholarship Program 2026
+    details: `Сэтгэлзүй Благословлын хөтөлбөр 2026
 
-We are proud to announce 10 full-tuition scholarships for deserving students!
+    Бид гайхалтай оюутнуудад 10 бүрэн сургалтын төлбөрийн бүрэн төлбөрийг зарлаж, бахархж байна!
 
-Scholarship Benefits:
-- 100% tuition fee waiver
-- Free study materials and lab access
-- Mentorship from industry experts
-- Placement assistance
+    Благословлын давуу талууд:
+    - 100% сургалтын төлбөрийг чөлөөлөх
+    - Үнэгүй сургалтын материал болон лабораторид хандах
+    - Салбарын мэргэжилтнүүдээс зөвлөгөө авах
+    - Ажилд ороход туслах
 
-Eligibility Criteria:
-- Outstanding academic record
-- Strong performance in entrance exam
-- Demonstrated passion for cybersecurity
-- Financial need (for need-based scholarships)
+    Үндсэн нөхцөл:
+    - Гайхалтай академик бичилт
+    - Орох шалгалт сайн ажиллах
+    - Хамгаалалтад хатуу сонирхолтой байх
+    - Санхүү хэрэгцээтэй хэрэгцээ (хэрэгцээнд суурилсан бласловлын хувьд)
 
-Selection Process:
-- Entrance exam performance (60%)
-- Personal interview (30%)
-- Academic background (10%)
+    Сонгох үйл явц:
+    - Орох шалгалтын гүйцэтгэл (60%)
+    - Хувийн ярилцаа (30%)
+    - Академик дэвшил (10%)
 
-Application Deadline: June 25, 2026
+    Хүсэлт гаргах хязгаар: 2026 оны 6 сарын 25
 
-Apply now and invest in your future!`
+    Одоо хэрэглэж, ирээдүйдээ хөрөнгө оруулаарай!`
   },
   {
     id: 3,
-    title: "Corporate Training Partnership Program",
-    date: "May 28, 2026",
-    description: "New corporate training partnerships with top tech companies for upskilling employees.",
+    title: "Корпоратив сургалтын хамтын ажиллагааны хөтөлбөр",
+    date: "2026 оны 5 сарын 28",
+    description: "Ажилчдын чадвар сайжруулахын тулд топ технологийн компаниудтай шинэ корпоратив сургалтын хамтын ажиллагаа.",
     icon: "🤝",
-    details: `Corporate Training Partnership Program
+    details: `Корпоратив сургалтын хамтын ажиллагааны хөтөлбөр
 
-We've established partnerships with leading tech companies to provide world-class cybersecurity training!
+    Бид дэлхийн шилдэг хамгаалалтын сургалтыг үзүүлэхийн тулд тэргүүн технологийн компаниудтай хамтын ажиллагааг тогтоосон!
 
-Partner Companies:
-- TechSecure Inc.
-- CyberDefense Corp
-- DataSafe Solutions
-- CloudGuard Technologies
+    Хамтын ажиллагч компаниуд:
+    - TechSecure Inc.
+    - CyberDefense Corp
+    - DataSafe Solutions
+    - CloudGuard Technologies
 
-Program Features:
-- Customized training modules
-- On-site and online options
-- Team-based training
-- Certification preparation
-- Post-training support
+    Хөтөлбөрийн онцлогууд:
+    - Захиалгат сургалтын модулууд
+    - Газар болон онлайн сонголт
+    - Багт өгөгдсөн сургалт
+    - Баталгааны бэлтгэл
+    - Сургалтын дараах тусламж
 
-Benefits for Partners:
-- Enhanced employee skillset
-- Better security posture
-- Industry-recognized certifications
-- Competitive advantage
+    Хамтын ажиллагчдийн давуу талууд:
+    - Ажилчдын чадварыг сайжруулах
+    - илүү сайн хамгааллын байдал
+    - Салбараас хүлээн зөвшөөрөгдсөн баталгаанууд
+    - Төрөлх өрсөлдөх давуу тал
 
-Interested in partnering with us?
-Contact our corporate training team at partnerships@indracyber.in`
+    Бидэнтэй хамтын ажиллагаа хийхийг хүсч байна уу?
+    Корпоратив сургалтын багтаа partnerships@indracyber.mn хаягаар холбогдоно уу.`
   }
 ];

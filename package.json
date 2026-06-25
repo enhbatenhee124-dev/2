@@ -1,13 +1,20 @@
 {
-  "name": "biedaalt",
+  "name": "indra-cyber",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Indra Cyber Institute Full-Stack Project",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev:frontend": "vite",
+    "dev:backend": "cd prisma-ecommerce && npm run dev",
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "backend:install": "cd prisma-ecommerce && npm install",
+    "backend:db:push": "cd prisma-ecommerce && npm run db:push",
+    "backend:db:seed": "cd prisma-ecommerce && npm run seed",
+    "backend:db:generate": "cd prisma-ecommerce && npm run db:generate"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -21,6 +28,7 @@
     "@typescript-eslint/parser": "^6.14.0",
     "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "^10.4.16",
+    "concurrently": "^10.0.3",
     "eslint": "^8.55.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
